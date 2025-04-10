@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Task Manager</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="userlogin.html">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+  <section class="form-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="text" id="loginUsername" placeholder="Username" required />
+      <input type="password" id="loginPassword" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="register.html">Register here</a></p>
+    <button class="back-btn" onclick="window.location.href='index.html'">Back</button>
+  </section>
+
+  <script src="main.js"></script>
+  <footer>
+    <p>&copy; 2025 Task Management System | Designed for Productivity</p>
+    <!-- <p>&hearts; Designed By - 119 Badmosh Mahila Mitarrs &hearts;</p>
+</footer> -->
+</body>
+</html>

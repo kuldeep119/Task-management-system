@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Task Manager</div>
+      <ul class="nav-links">
+        <li><a href="profile.html" class="active">Profile</a></li>
+        <li><a href="index.html" onclick="logout()">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="dashboard">
+    <h2>Welcome, <span id="userName"></span></h2>
+
+    <div class="task-form">
+      <input type="text" id="taskTitle" placeholder="Task Title" required>
+      <input type="text" id="taskDesc" placeholder="Task Description" required>
+      
+      <!-- Hidden status input, always set to 'Upcoming' -->
+      <input type="hidden" id="taskStatus" value="Upcoming">
+
+      <button onclick="addTask()">Add Task</button>
+    </div>
+
+    <div class="task-columns">
+      <div class="task-section" id="upcomingTasks"><h3>📌 Upcoming</h3></div>
+      <div class="task-section" id="inProgressTasks"><h3>⚙️ In Progress</h3></div>
+      <div class="task-section" id="completedTasks"><h3>✅ Completed</h3></div>
+    </div>
+  </section>
+
+  <script src="main.js"></script>
+  <footer>
+    <p>&copy; 2025 Task Management System | Designed for Productivity</p>
+    <!-- <p>&hearts; Designed By - 119 Badmosh Mahila Mitarrs &hearts;</p> -->
+</footer>
+</body>
+</html>

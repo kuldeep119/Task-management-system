@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Info</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <section class="info-container">
+    <h2>Registration Successful 🎉</h2>
+    <p>Welcome, <span id="userWelcome"></span>!</p>
+    <button onclick="window.location.href='dashboard.html'">Go to Dashboard</button>
+  </section>
+
+  <script>
+    document.getElementById('userWelcome').textContent = localStorage.getItem('username');
+  </script>
+  <footer>
+    <p>&copy; 2025 Task Management System | Designed for Productivity</p>
+    <!-- <p>&hearts; Designed By - 119 Badmosh Mahila Mitarrs &hearts;</p> -->
+</footer>
+</body>
+</html>

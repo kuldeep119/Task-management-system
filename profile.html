@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Info</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="userinfo.js" defer></script>
+</head>
+<style>
+    /* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2f3e46;
+  padding: 15px 30px;
+  color: white;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  padding: 6px 12px;
+  /* transition: background 0.3s; */
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  /* background: #52796f; */
+  border-radius: 5px;
+}
+
+/* User Info Section */
+.user-info {
+  max-width: 600px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.user-info h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #2f3e46;
+}
+
+.user-details p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* Update Password */
+.update-password {
+  margin-top: 30px;
+}
+
+.update-password h3 {
+  margin-bottom: 10px;
+  color: #354f52;
+}
+
+.update-password input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.update-password button {
+  padding: 10px 20px;
+  background-color: #52796f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.update-password button:hover {
+  background-color: #354f52;
+}
+
+/* More Options */
+.more-options {
+  margin-top: 30px;
+}
+
+.more-options h3 {
+  margin-bottom: 10px;
+}
+
+.more-options ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.more-options ul li {
+  margin-bottom: 10px;
+}
+
+.more-options ul li a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.more-options ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: auto;
+  padding: 15px;
+  background-color: #2f3e46;
+  color: white;
+}
+
+</style>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Task Manager</div>
+      <ul class="nav-links">
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="index.html" onclick="logout()">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="user-info">
+    <h2>User Profile</h2>
+
+    <div class="user-details">
+      <p><strong>Username:</strong> <span id="displayName"></span></p>
+      <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+    </div>
+
+    <div class="update-password">
+      <h3>Update Password</h3>
+      <input type="password" id="newPassword" placeholder="New Password" />
+      <button onclick="updatePassword()">Update</button>
+    </div>
+
+    <div class="more-options">
+      <h3>More Options</h3>
+      <ul>
+        <li><a href="#">Edit Profile (Coming Soon)</a></li>
+        <li><a href="#" onclick="deleteAccount()">Delete Account</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Task Management System | Designed for Productivity</p>
+    <!-- <p>&hearts; Designed By - 119 Badmosh Mahila Mitarrs &hearts;</p> -->
+</footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+
+  if (storedUser) {
+    document.getElementById("displayName").textContent = storedUser.username;
+    document.getElementById("displayEmail").textContent = storedUser.email;
+  } else {
+    alert("User not found. Redirecting to login...");
+    window.location.href = "userlogin.html";
+  }
+});
+
+function updatePassword() {
+  const newPass = document.getElementById("newPassword").value;
+  if (!newPass) {
+    alert("Please enter a new password.");
+    return;
+  }
+
+  const user = JSON.parse(localStorage.getItem("user"));
+  user.password = btoa(newPass); // Encode new password in base64
+  localStorage.setItem("user", JSON.stringify(user));
+  alert("Password updated successfully!");
+}
+
+function deleteAccount() {
+  if (confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
+    localStorage.removeItem("user");
+    localStorage.removeItem("username");
+    localStorage.removeItem("tasks");
+    alert("Account deleted.");
+    window.location.href = "index.html";
+  }
+}
+
+function logout() {
+  localStorage.removeItem("username");
+}
+
+  </script>
+</body>
+</html>

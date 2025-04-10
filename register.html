@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register</title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body & Typography */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f2f2f2;
+    color: #333;
+    line-height: 1.6;
+  }
+/* 🔹 Navbar Styling */
+.navbar {
+    background: #2c3e50;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.2rem;
+  }
+  
+  .navbar .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+.navbar .nav-links a:hover,
+.nav-links a.active {
+    border-bottom: 2px solid #ffcc00;
+}
+
+    /* Form Container */
+  .form-container, .register-container {
+    max-width: 650px;
+    margin: 12.89rem auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    
+  }
+  
+  .form-container h2,
+  .register-container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  form input,
+  form select {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  form button {
+    width: 100%;
+    padding: 0.8rem;
+    background: #1e90ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background: #1c86ee;
+  }
+  
+  /* Dashboard */
+  .dashboard {
+    padding: 2rem;
+  }
+  
+  .dashboard h2 {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+  }
+  
+  .task-form {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .task-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding-top: 1rem;
+  }
+  
+  .task-section {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .task-section h3 {
+    margin-bottom: 1rem;
+    color: #1e90ff;
+  }
+  
+  .task-card {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-left: 5px solid #1e90ff;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+  }
+  
+  .task-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  /* Info Page */
+  .info-container {
+    max-width: 500px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .info-container button {
+    margin-top: 1rem;
+    padding: 0.7rem 1.4rem;
+    background: #1e90ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .info-container button:hover {
+    background: #1571cd;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    background: #2c3e50;
+    color: white;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .navbar .nav-links {
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+  
+    .task-form {
+      width: 90%;
+    }
+  }
+  
+</style>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Task Manager</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="userlogin.html">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+  <section class="form-container">
+    <h2>Register</h2>
+    <form id="registerForm">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder=" Create Password" required />
+      <button type="submit">Register</button>
+      
+    </form>
+    <p>Already have an account? <a href="userlogin.html">Login here</a></p>
+    <button class="back-btn" onclick="window.location.href='index.html'">Back</button>
+  </section>
+
+  <script src="main.js"></script>
+  <footer>
+    <p>&copy; 2025 Task Management System | Designed for Productivity</p>
+    <!-- <p>&hearts; Designed By - 119 Badmosh Mahila Mitarrs &hearts;</p> -->
+</footer>
+</body>
+</html>
